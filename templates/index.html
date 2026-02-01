@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Prediction Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>📊 Stock Price Prediction Dashboard</h2>
+    <p class="subtitle">Predict future stock prices using historical data</p>
+
+    <form method="POST">
+
+        <label>Enter Stock Symbols</label>
+        <input type="text" name="stocks" placeholder="AAPL, TSLA, RELIANCE.NS" required>
+
+        <label>Days to Predict</label>
+        <input type="number" name="days" value="5" min="1" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if chart %}
+    <div class="result">
+        <h3>Prediction Result</h3>
+        <img src="{{ chart }}">
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
